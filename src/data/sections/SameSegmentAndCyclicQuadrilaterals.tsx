@@ -220,17 +220,17 @@ const SAME_SEGMENT_QUESTIONS: PracticeQuestion[] = [
     },
     {
         id: "same-segment-transfer",
-        prompt: "A and B are two fixed points on a circle. From point C on the major arc, angle ACB = 42°. D is a different point on the same major arc. What is angle ADB?",
-        options: [
-            { id: "forty-two", label: "42°" },
-            { id: "eighty-four", label: "84°" },
-            { id: "one-thirty-eight", label: "138°" },
-        ],
-        correctId: "forty-two",
-        correctFeedback: "Right. Both angles stand on chord AB from the same side, so they are equal — both are half the same angle at the centre.",
+        kind: "number",
+        prompt: "A and B are two fixed points on a circle. From point C on the major arc, angle ACB = 42\u00b0. D is a different point on the same major arc. Work out angle ADB, in degrees.",
+        correctValue: 42,
+        unit: "degrees",
+        correctFeedback: "Right. Both angles stand on chord AB from the same side, so they are equal \u2014 both are half the same angle at the centre.",
+        wrongFeedback: "Not yet. C and D are both on the rim, on the same side of AB. Think about what each of them is half of, then try again.",
         hints: {
-            "eighty-four": "Doubling takes you to the centre, not to another point on the rim. Both C and D are on the rim, so how do their angles compare?",
-            "one-thirty-eight": "That is the cyclic quadrilateral rule, and D is on the same side as C, not the opposite arc. Which rule applies when both points are on the same arc?",
+            "84": "Doubling takes you to the centre, not to another point on the rim. Both C and D sit on the rim \u2014 how do their angles compare?",
+            "138": "That is the cyclic quadrilateral rule, but D is on the same arc as C, not the opposite one. Which rule applies when both points are on the same arc?",
+            "21": "That halves instead of matching. Both angles are half of the same angle at the centre, so what does that make them?",
+            "90": "There is no diameter in this question. Look again at where C and D sit relative to chord AB.",
         },
     },
 ];
