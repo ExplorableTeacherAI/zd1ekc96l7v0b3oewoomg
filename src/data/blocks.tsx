@@ -1,4 +1,12 @@
 import { type ReactElement } from "react";
+
+import { circleTheoremsIntroductionBlocks } from "./sections/CircleTheoremsIntroduction";
+import { partsOfACircleBlocks } from "./sections/PartsOfACircle";
+import { angleAtTheCentreBlocks } from "./sections/AngleAtTheCentre";
+import { angleInASemicircleBlocks } from "./sections/AngleInASemicircle";
+import { sameSegmentAndCyclicQuadrilateralsBlocks } from "./sections/SameSegmentAndCyclicQuadrilaterals";
+import { puttingTheTheoremsTogetherBlocks } from "./sections/PuttingTheTheoremsTogether";
+import { wrappingUpBlocks } from "./sections/WrappingUp";
 // import { Block } from "@/components/templates";
 // import { StackLayout, SplitLayout, GridLayout } from "@/components/layouts";
 
@@ -74,5 +82,11 @@ initializeVariableColors(variableDefinitions);
  */
 
 export const blocks: ReactElement[] = [
-    // Start adding your blocks here!
+    ...circleTheoremsIntroductionBlocks,
+    ...partsOfACircleBlocks,
+    ...angleAtTheCentreBlocks,
+    ...angleInASemicircleBlocks,
+    ...sameSegmentAndCyclicQuadrilateralsBlocks,
+    ...puttingTheTheoremsTogetherBlocks,
+    ...wrappingUpBlocks,
 ];
