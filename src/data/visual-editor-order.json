@@ -1,4 +1,410 @@
 {
-  "version": 2,
-  "blockIds": []
+  "version": 3,
+  "blockIds": [
+    "circle-theorems-title",
+    "circle-theorems-hook",
+    "circle-theorems-promise",
+    "parts-of-circle-heading",
+    "parts-of-circle-why-names-matter",
+    "parts-of-circle-key-distinctions",
+    "parts-of-circle-visual",
+    "parts-of-circle-practice",
+    "angle-at-centre-heading",
+    "angle-at-centre-setup",
+    "angle-at-centre-rule",
+    "angle-at-centre-conditions",
+    "angle-at-centre-visual",
+    "semicircle-angle-heading",
+    "semicircle-angle-rule",
+    "semicircle-angle-reason",
+    "semicircle-angle-visual",
+    "semicircle-angle-practice",
+    "same-segment-cyclic-heading",
+    "same-segment-rule",
+    "cyclic-quadrilateral-rule",
+    "same-segment-cyclic-visual",
+    "same-segment-cyclic-practice",
+    "theorems-together-heading",
+    "theorems-together-chaining",
+    "theorems-summary-table",
+    "theorems-together-visual",
+    "theorems-together-practice",
+    "wrapping-up-heading",
+    "wrapping-up-single-idea",
+    "wrapping-up-what-next"
+  ],
+  "rows": [
+    {
+      "id": "layout-circle-theorems-title",
+      "type": "stack",
+      "columns": [
+        [
+          "circle-theorems-title"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-circle-theorems-hook",
+      "type": "stack",
+      "columns": [
+        [
+          "circle-theorems-hook"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-circle-theorems-promise",
+      "type": "stack",
+      "columns": [
+        [
+          "circle-theorems-promise"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-parts-of-circle-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "parts-of-circle-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-parts-of-circle-why-names-matter",
+      "type": "stack",
+      "columns": [
+        [
+          "parts-of-circle-why-names-matter"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-parts-of-circle-key-distinctions",
+      "type": "stack",
+      "columns": [
+        [
+          "parts-of-circle-key-distinctions"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-parts-of-circle-visual",
+      "type": "stack",
+      "columns": [
+        [
+          "parts-of-circle-visual"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-parts-of-circle-practice",
+      "type": "stack",
+      "columns": [
+        [
+          "parts-of-circle-practice"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-at-centre-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-at-centre-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-at-centre-setup",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-at-centre-setup"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-at-centre-rule",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-at-centre-rule"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-at-centre-conditions",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-at-centre-conditions"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-at-centre-visual",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-at-centre-visual"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-semicircle-angle-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "semicircle-angle-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-semicircle-angle-rule",
+      "type": "stack",
+      "columns": [
+        [
+          "semicircle-angle-rule"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-semicircle-angle-reason",
+      "type": "stack",
+      "columns": [
+        [
+          "semicircle-angle-reason"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-semicircle-angle-visual",
+      "type": "stack",
+      "columns": [
+        [
+          "semicircle-angle-visual"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-semicircle-angle-practice",
+      "type": "stack",
+      "columns": [
+        [
+          "semicircle-angle-practice"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-same-segment-cyclic-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "same-segment-cyclic-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-same-segment-rule",
+      "type": "stack",
+      "columns": [
+        [
+          "same-segment-rule"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-cyclic-quadrilateral-rule",
+      "type": "stack",
+      "columns": [
+        [
+          "cyclic-quadrilateral-rule"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-same-segment-cyclic-visual",
+      "type": "stack",
+      "columns": [
+        [
+          "same-segment-cyclic-visual"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-same-segment-cyclic-practice",
+      "type": "stack",
+      "columns": [
+        [
+          "same-segment-cyclic-practice"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-theorems-together-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "theorems-together-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-theorems-together-chaining",
+      "type": "stack",
+      "columns": [
+        [
+          "theorems-together-chaining"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-theorems-summary-table",
+      "type": "stack",
+      "columns": [
+        [
+          "theorems-summary-table"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-theorems-together-visual",
+      "type": "stack",
+      "columns": [
+        [
+          "theorems-together-visual"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-theorems-together-practice",
+      "type": "stack",
+      "columns": [
+        [
+          "theorems-together-practice"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-wrapping-up-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "wrapping-up-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-wrapping-up-single-idea",
+      "type": "stack",
+      "columns": [
+        [
+          "wrapping-up-single-idea"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-wrapping-up-what-next",
+      "type": "stack",
+      "columns": [
+        [
+          "wrapping-up-what-next"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    }
+  ]
 }

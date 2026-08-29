@@ -288,10 +288,4 @@ export const angleAtTheCentreBlocks: ReactElement[] = [
             <AngleAtTheCentreExplorer />
         </Block>
     </StackLayout>,
-
-    <StackLayout key="layout-angle-at-centre-practice" maxWidth="xl">
-        <Block id="angle-at-centre-practice" padding="sm">
-            <PracticeQuestions questions={ANGLE_AT_THE_CENTRE_QUESTIONS} />
-        </Block>
-    </StackLayout>,
 ];
