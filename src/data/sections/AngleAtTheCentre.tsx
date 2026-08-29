@@ -4,9 +4,15 @@ import { StackLayout } from "@/components/layouts";
 import { EditableH2, EditableParagraph, Slider } from "@/components/atoms";
 import { FormulaBlock } from "@/components/molecules";
 import { PracticeQuestions, type PracticeQuestion } from "./PracticeQuestions";
+import {
+    pointOnCircle,
+    normaliseDegrees,
+    directionDegrees,
+    minorArcPath,
+} from "./circleGeometry";
 
 /* ------------------------------------------------------------------ */
-/* Geometry helpers                                                    */
+/* Layout constants                                                    */
 /* ------------------------------------------------------------------ */
 
 const VIEWBOX_WIDTH = 560;
@@ -23,41 +29,8 @@ const FIXED_ANGLE_B = 340;
 const VIEWPOINT_START = -15;
 const VIEWPOINT_SWEEP = 210;
 
-const toPoint = (angleDegrees: number, radius = RADIUS) => ({
-    x: CENTRE_X + radius * Math.cos((angleDegrees * Math.PI) / 180),
-    y: CENTRE_Y - radius * Math.sin((angleDegrees * Math.PI) / 180),
-});
-
-const normalise = (angleDegrees: number) => {
-    let value = angleDegrees;
-    while (value <= -180) value += 360;
-    while (value > 180) value -= 360;
-    return value;
-};
-
-/** Path for the smaller arc between two directions, drawn around (cx, cy). */
-const minorArcPath = (
-    cx: number,
-    cy: number,
-    radius: number,
-    startDegrees: number,
-    endDegrees: number,
-) => {
-    const start = {
-        x: cx + radius * Math.cos((startDegrees * Math.PI) / 180),
-        y: cy - radius * Math.sin((startDegrees * Math.PI) / 180),
-    };
-    const end = {
-        x: cx + radius * Math.cos((endDegrees * Math.PI) / 180),
-        y: cy - radius * Math.sin((endDegrees * Math.PI) / 180),
-    };
-    const difference = normalise(endDegrees - startDegrees);
-    const sweepFlag = difference > 0 ? 0 : 1;
-    return `M ${start.x.toFixed(1)},${start.y.toFixed(1)} A ${radius},${radius} 0 0 ${sweepFlag} ${end.x.toFixed(1)},${end.y.toFixed(1)}`;
-};
-
-const directionDegrees = (from: { x: number; y: number }, to: { x: number; y: number }) =>
-    (Math.atan2(from.y - to.y, to.x - from.x) * 180) / Math.PI;
+const toPoint = (angleDegrees: number) =>
+    pointOnCircle(CENTRE_X, CENTRE_Y, RADIUS, angleDegrees);
 
 /* ------------------------------------------------------------------ */
 /* Interactive visual                                                  */
@@ -78,12 +51,12 @@ const AngleAtTheCentreExplorer = () => {
     const viewpoint = toPoint(viewpointAngle);
 
     // Angle at the centre, standing on the arc that does NOT contain the viewpoint.
-    const centreAngle = Math.abs(normalise(FIXED_ANGLE_B - FIXED_ANGLE_A));
+    const centreAngle = Math.abs(normaliseDegrees(FIXED_ANGLE_B - FIXED_ANGLE_A));
 
     // Angle at the rim, measured from the movable viewpoint.
     const toA = directionDegrees(viewpoint, pointA);
     const toB = directionDegrees(viewpoint, pointB);
-    const rimAngle = Math.abs(normalise(toB - toA));
+    const rimAngle = Math.abs(normaliseDegrees(toB - toA));
 
     const updateFromPointer = useCallback((clientX: number, clientY: number) => {
         const svg = svgRef.current;
