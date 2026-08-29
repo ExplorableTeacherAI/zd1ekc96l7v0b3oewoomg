@@ -1,14 +1,8 @@
 import { useState, type ReactElement } from "react";
 import { Block } from "@/components/templates";
 import { StackLayout } from "@/components/layouts";
-import {
-    EditableH2,
-    EditableParagraph,
-    Button,
-    RadioGroup,
-    RadioGroupItem,
-    Label,
-} from "@/components/atoms";
+import { EditableH2, EditableParagraph, Button } from "@/components/atoms";
+import { PracticeQuestions, type PracticeQuestion } from "./PracticeQuestions";
 
 /* ------------------------------------------------------------------ */
 /* Interactive labelled circle                                         */
@@ -212,16 +206,7 @@ const PartsOfACircleDiagram = () => {
 /* Practice                                                            */
 /* ------------------------------------------------------------------ */
 
-interface PracticeQuestion {
-    id: string;
-    prompt: string;
-    options: { id: string; label: string }[];
-    correctId: string;
-    correctFeedback: string;
-    hints: Record<string, string>;
-}
-
-const PRACTICE_QUESTIONS: PracticeQuestion[] = [
+const PARTS_OF_A_CIRCLE_QUESTIONS: PracticeQuestion[] = [
     {
         id: "spoke-length",
         prompt: "A Ferris wheel measures 18 metres straight across through its centre. How long is one spoke, from the hub to a carriage?",
@@ -231,10 +216,10 @@ const PRACTICE_QUESTIONS: PracticeQuestion[] = [
             { id: "thirty-six", label: "36 metres" },
         ],
         correctId: "nine",
-        correctFeedback: "Yes. Straight across through the centre is the diameter, and a spoke is a radius — exactly half of it.",
+        correctFeedback: "Yes. Straight across through the centre is the diameter, and a spoke is a radius \u2014 exactly half of it.",
         hints: {
             eighteen: "That is the whole way across. Select Diameter and then Radius above and compare how far each line reaches.",
-            "thirty-six": "That has doubled instead of halved. Select Diameter above — the radius is the shorter of the two.",
+            "thirty-six": "That has doubled instead of halved. Select Diameter above \u2014 the radius is the shorter of the two.",
         },
     },
     {
@@ -247,10 +232,10 @@ const PRACTICE_QUESTIONS: PracticeQuestion[] = [
             { id: "tangent", label: "Tangent" },
         ],
         correctId: "chord-and-diameter",
-        correctFeedback: "Correct. Every diameter is a chord — it is just the special one that passes through the centre.",
+        correctFeedback: "Correct. Every diameter is a chord \u2014 it is just the special one that passes through the centre.",
         hints: {
             "chord-only": "True, but not the full answer. Select Diameter above and check whether it also joins two points on the rim.",
-            "diameter-only": "Almost. Select Chord above, then Diameter — look at what both lines have in common.",
+            "diameter-only": "Almost. Select Chord above, then Diameter \u2014 look at what both lines have in common.",
             tangent: "A tangent only touches the rim once. Select Tangent above and see whether it crosses the circle at all.",
         },
     },
@@ -266,83 +251,10 @@ const PRACTICE_QUESTIONS: PracticeQuestion[] = [
         correctFeedback: "Exactly. The longest possible chord is the diameter, 12 cm, so 14 cm cannot fit inside the circle.",
         hints: {
             five: "A short chord near the edge is perfectly possible. Work out the diameter first, then ask which option is too long to fit.",
-            eleven: "That one still fits. Select Diameter above — how long is the longest chord when the radius is 6 cm?",
+            eleven: "That one still fits. Select Diameter above \u2014 how long is the longest chord when the radius is 6 cm?",
         },
     },
 ];
-
-const PartsOfACirclePractice = () => {
-    const [answers, setAnswers] = useState<Record<string, string>>({});
-    const [checked, setChecked] = useState<Record<string, boolean>>({});
-
-    return (
-        <div className="space-y-6">
-            {PRACTICE_QUESTIONS.map((question, index) => {
-                const chosen = answers[question.id];
-                const isChecked = checked[question.id];
-                const isCorrect = chosen === question.correctId;
-
-                return (
-                    <div key={question.id} className="rounded-lg border border-slate-200 p-4">
-                        <div className="font-medium text-slate-800 mb-3">
-                            {index + 1}. {question.prompt}
-                        </div>
-
-                        <RadioGroup
-                            value={chosen ?? ""}
-                            onValueChange={(value) => {
-                                setAnswers((previous) => ({ ...previous, [question.id]: value }));
-                                setChecked((previous) => ({ ...previous, [question.id]: false }));
-                            }}
-                            className="space-y-2"
-                        >
-                            {question.options.map((option) => (
-                                <div key={option.id} className="flex items-center gap-2">
-                                    <RadioGroupItem
-                                        value={option.id}
-                                        id={`${question.id}-${option.id}`}
-                                    />
-                                    <Label
-                                        htmlFor={`${question.id}-${option.id}`}
-                                        className="cursor-pointer text-slate-700"
-                                    >
-                                        {option.label}
-                                    </Label>
-                                </div>
-                            ))}
-                        </RadioGroup>
-
-                        <Button
-                            size="sm"
-                            className="mt-3"
-                            disabled={!chosen}
-                            onClick={() =>
-                                setChecked((previous) => ({ ...previous, [question.id]: true }))
-                            }
-                        >
-                            Check answer
-                        </Button>
-
-                        {isChecked && (
-                            <div
-                                className={`mt-3 rounded-md px-3 py-2 text-sm ${
-                                    isCorrect
-                                        ? "bg-emerald-50 text-emerald-800"
-                                        : "bg-amber-50 text-amber-800"
-                                }`}
-                            >
-                                {isCorrect
-                                    ? question.correctFeedback
-                                    : question.hints[chosen ?? ""] ??
-                                      "Not quite — look back at the circle above and try again."}
-                            </div>
-                        )}
-                    </div>
-                );
-            })}
-        </div>
-    );
-};
 
 /* ------------------------------------------------------------------ */
 /* Blocks                                                              */
@@ -386,7 +298,7 @@ export const partsOfACircleBlocks: ReactElement[] = [
 
     <StackLayout key="layout-parts-of-circle-practice" maxWidth="xl">
         <Block id="parts-of-circle-practice" padding="sm">
-            <PartsOfACirclePractice />
+            <PracticeQuestions questions={PARTS_OF_A_CIRCLE_QUESTIONS} />
         </Block>
     </StackLayout>,
 ];
